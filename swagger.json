@@ -1,0 +1,127 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Mobile Detail API",
+      "description": "API for creating mobile device details",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/individual/mobile": {
+        "post": {
+          "summary": "Create a new mobile device detail",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "review": { "type": "string" },
+                    "price": { "type": "number" },
+                    "offer": { "type": "string" },
+                    "warranty": { "type": "string" },
+                    "delivery": { "type": "string" },
+                    "ram": { "type": "string" },
+                    "ramsize": { "type": "string" },
+                    "display": { "type": "string" },
+                    "camera": { "type": "string" },
+                    "battery": { "type": "string" },
+                    "seller": { "type": "string" },
+                    "description": { "type": "string" },
+                    "modelnumber": { "type": "string" },
+                    "modelname": { "type": "string" },
+                    "color": { "type": "string" },
+                    "browsetype": { "type": "string" },
+                    "simtype": { "type": "string" },
+                    "touchscreen": { "type": "boolean" },
+                    "otg": { "type": "boolean" },
+                    "inthebox": { "type": "string" },
+                    "hybridsimslot": { "type": "string" },
+                    "sarvalue": { "type": "string" },
+                    "photoUrls": {
+                      "type": "array",
+                      "items": { "type": "file" },
+                      "maxItems": 4
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Mobile detail created successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/MobileDetail"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal server error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "MobileDetail": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "review": { "type": "string" },
+            "price": { "type": "number" },
+            "offer": { "type": "string" },
+            "warranty": { "type": "string" },
+            "delivery": { "type": "string" },
+            "ram": { "type": "string" },
+            "ramsize": { "type": "string" },
+            "display": { "type": "string" },
+            "camera": { "type": "string" },
+            "battery": { "type": "string" },
+            "seller": { "type": "string" },
+            "description": { "type": "string" },
+            "modelnumber": { "type": "string" },
+            "modelname": { "type": "string" },
+            "color": { "type": "string" },
+            "browsetype": { "type": "string" },
+            "simtype": { "type": "string" },
+            "touchscreen": { "type": "boolean" },
+            "otg": { "type": "boolean" },
+            "inthebox": { "type": "string" },
+            "hybridsimslot": { "type": "string" },
+            "sarvalue": { "type": "string" },
+            "photoUrls": { "type": "array", "items": { "type": "file" } }
+          }
+        },
+        "Error": {
+          "type": "object",
+          "properties": {
+            "error": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+  

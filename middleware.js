@@ -1,0 +1,10 @@
+const express = require('express');
+const cors = require('cors');
+const multer = require('multer');
+const app = express();
+app.use(express.json());
+app.use(cors());
+app.use('/', routes);
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+module.exports = { app, upload };
